@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaneen – Coming Soon</title>
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --navy-blue: #1d2c59;
+        --beige: #e4d3bd;
+        --tahoe-green: #00c6c1;
+        --spanish-gray: #959c9f;
+        --gold: #be956d;
+        --background: #faf6f2;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--background);
+        color: var(--navy-blue);
+        font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Utility classes */
+      .text-navy { color: var(--navy-blue); }
+      .text-navy-60 { color: rgba(29, 44, 89, 0.5); }
+      .text-gray { color: var(--spanish-gray); }
+      .bg-tahoe { background-color: var(--tahoe-green); }
+      .bg-gold { background-color: var(--gold); }
+      .bg-navy { background-color: var(--navy-blue); }
+
+      /* Split layout */
+      .split-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 100vh;
+      }
+
+      @media (max-width: 768px) {
+        .split-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+        }
+      }
+
+      /* Left panel - Logo section with original background style */
+      .logo-panel {
+        background: linear-gradient(145deg, #faf6f2 0%, #f5efe8 50%, #faf6f2 100%);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        min-height: 40vh;
+      }
+
+      /* Floating orbs from original - adapted for panel */
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .orb-1 {
+        top: -10%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(0, 198, 193, 0.15) 0%, transparent 70%);
+        animation: float 20s ease-in-out infinite;
+      }
+
+      .orb-2 {
+        bottom: -15%;
+        left: -10%;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(190, 149, 109, 0.12) 0%, transparent 70%);
+        animation: float-reverse 25s ease-in-out infinite;
+      }
+
+      .orb-3 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(228, 211, 189, 0.2) 0%, transparent 60%);
+      }
+
+      /* Small floating accent shapes */
+      .accent-dot {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .accent-dot-1 {
+        width: 8px;
+        height: 8px;
+        background: var(--tahoe-green);
+        top: 20%;
+        left: 25%;
+        animation: float 15s ease-in-out infinite;
+        opacity: 0.5;
+      }
+
+      .accent-dot-2 {
+        width: 6px;
+        height: 6px;
+        background: var(--gold);
+        top: 60%;
+        right: 20%;
+        animation: float-reverse 18s ease-in-out infinite;
+        opacity: 0.4;
+      }
+
+      .accent-dot-3 {
+        width: 10px;
+        height: 10px;
+        background: var(--tahoe-green);
+        bottom: 25%;
+        left: 35%;
+        animation: float 22s ease-in-out infinite;
+        opacity: 0.3;
+      }
+
+      /* Dot pattern from original */
+      .dot-pattern {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.03;
+        background-image: radial-gradient(circle at 1px 1px, rgba(29, 44, 89, 1) 1px, transparent 0);
+        background-size: 32px 32px;
+      }
+
+      /* Right panel - Content section with glass card */
+      .content-panel {
+        background: linear-gradient(145deg, #faf6f2 0%, #f5efe8 50%, #faf6f2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 2rem;
+        position: relative;
+      }
+
+      /* Glassmorphism card from original */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 
+          0 8px 32px rgba(29, 44, 89, 0.08),
+          0 2px 8px rgba(29, 44, 89, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border-radius: 24px;
+        padding: 2.5rem;
+      }
+
+      /* Animations from original */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-in-scale {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(10px, -15px) rotate(2deg); }
+        50% { transform: translate(-5px, -25px) rotate(-1deg); }
+        75% { transform: translate(-15px, -10px) rotate(1deg); }
+      }
+
+      @keyframes float-reverse {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(-10px, 15px) rotate(-2deg); }
+        50% { transform: translate(5px, 25px) rotate(1deg); }
+        75% { transform: translate(15px, 10px) rotate(-1deg); }
+      }
+
+      @keyframes pulse-ring {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { transform: scale(1.3); opacity: 0; }
+      }
+
+      @keyframes dot-bounce {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1.2); opacity: 1; }
+      }
+
+      .animate-fade-in-up {
+        opacity: 0;
+        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .animate-fade-in-scale {
+        opacity: 0;
+        animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .animate-dot {
+        animation: dot-bounce 1.4s ease-in-out infinite;
+      }
+
+      /* Shimmer text from original */
+      .shimmer-text {
+        background: linear-gradient(
+          90deg,
+          var(--navy-blue) 0%,
+          var(--navy-blue) 40%,
+          var(--tahoe-green) 50%,
+          var(--navy-blue) 60%,
+          var(--navy-blue) 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding: 4px;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 4s linear infinite;
+      }
+
+      /* Delay utilities */
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      .delay-600 { animation-delay: 0.6s; }
+      .delay-700 { animation-delay: 0.7s; }
+
+      /* Loading dots from original */
+      .loading-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--tahoe-green);
+        box-shadow: 0 0 20px rgba(0, 198, 193, 0.4);
+      }
+
+      /* Logo glow effect */
+      .logo-glow {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 198, 193, 0.15) 0%, transparent 70%);
+        filter: blur(30px);
+        animation: pulse-glow 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.15); opacity: 0.3; }
+      }
+
+      /* Logo animation */
+      .logo-animate {
+        animation: logo-entrance 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes logo-entrance {
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Pulse ring from original */
+      .pulse-ring {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--tahoe-green);
+        border-radius: 50%;
+        animation: pulse-ring 2s ease-out infinite;
+      }
+
+      /* Version switcher */
+      .version-switcher {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 50;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .version-switcher a {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        color: var(--navy-blue);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(29, 44, 89, 0.1);
+        box-shadow: 0 2px 10px rgba(29, 44, 89, 0.08);
+      }
+
+      .version-switcher a:hover {
+        background: var(--navy-blue);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(29, 44, 89, 0.15);
+      }
+
+      .version-switcher a.active {
+        background: var(--navy-blue);
+        color: white;
+        pointer-events: none;
+      }
+
+      /* Noise texture overlay */
+      .noise-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        z-index: 100;
+      }
+
+      /* Divider line */
+      .panel-divider {
+        position: absolute;
+        top: 10%;
+        bottom: 10%;
+        left: 0;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(0, 198, 193, 0.3) 20%,
+          rgba(0, 198, 193, 0.5) 50%,
+          rgba(0, 198, 193, 0.3) 80%,
+          transparent 100%
+        );
+      }
+
+      @media (max-width: 768px) {
+        .panel-divider {
+          top: auto;
+          bottom: auto;
+          left: 10%;
+          right: 10%;
+          top: 0;
+          width: auto;
+          height: 1px;
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 198, 193, 0.3) 20%,
+            rgba(0, 198, 193, 0.5) 50%,
+            rgba(0, 198, 193, 0.3) 80%,
+            transparent 100%
+          );
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Noise texture -->
+    <div class="noise-overlay"></div>
+
+    <!-- Version switcher -->
+    <div class="version-switcher">
+      <a href="index.html">A</a>
+      <a href="option-b.html">B</a>
+      <a href="option-c.html" class="active">C</a>
+      <a href="option-d.html">D</a>
+    </div>
+
+    <div class="split-container">
+      <!-- Left Panel - Logo with original styling -->
+      <div class="logo-panel">
+        <!-- Background orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        
+        <!-- Dot pattern -->
+        <div class="dot-pattern"></div>
+        
+        <!-- Floating accent dots -->
+        <div class="accent-dot accent-dot-1"></div>
+        <div class="accent-dot accent-dot-2"></div>
+        <div class="accent-dot accent-dot-3"></div>
+        
+        <!-- Logo glow -->
+        <div class="logo-glow"></div>
+        
+        <!-- Logo with pulse ring -->
+        <div class="relative z-10 logo-animate">
+          <div class="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
+            <!-- Pulse rings -->
+            <div class="pulse-ring" style="animation-delay: 0s;"></div>
+            <div class="pulse-ring" style="animation-delay: 0.5s;"></div>
+            
+            <!-- Logo -->
+            <img
+              src="/logo.svg"
+              alt="Kaneen Logo"
+              class="relative z-10 w-full h-full object-contain drop-shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Content with glass card -->
+      <div class="content-panel">
+        <!-- Divider line -->
+        <div class="panel-divider"></div>
+        
+        <!-- Dot pattern -->
+        <div class="dot-pattern"></div>
+        
+        <!-- Glass card -->
+        <div class="glass-card animate-fade-in-scale max-w-md">
+          <!-- Arabic heading -->
+          <div class="mb-4 animate-fade-in-up delay-200">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center shimmer-text">
+              قريبـــــــــا
+            </h1>
+          </div>
+
+          <!-- English heading -->
+          <div class="mb-6 animate-fade-in-up delay-300">
+            <h2 class="text-xl sm:text-2xl font-semibold text-center text-navy-60">
+              COMING SOON
+            </h2>
+          </div>
+
+          <!-- Divider -->
+          <div class="flex items-center justify-center gap-4 mb-6 animate-fade-in-up delay-400">
+            <div class="h-px w-12 bg-gradient-to-r from-transparent to-[rgba(29,44,89,0.2)]"></div>
+            <div class="w-2 h-2 rounded-full bg-tahoe"></div>
+            <div class="h-px w-12 bg-gradient-to-l from-transparent to-[rgba(29,44,89,0.2)]"></div>
+          </div>
+
+          <!-- Subtitle -->
+          <div class="text-center mb-8 animate-fade-in-up delay-500">
+            <p class="text-base sm:text-lg text-gray leading-relaxed mb-2">
+              نعمل على شيء مميز
+            </p>
+            <p class="text-sm sm:text-base text-gray opacity-70">
+              We're working on something special
+            </p>
+          </div>
+
+          <!-- Loading dots -->
+          <div class="flex justify-center gap-3 animate-fade-in-up delay-600">
+            <span class="loading-dot animate-dot" style="animation-delay: 0s;"></span>
+            <span class="loading-dot animate-dot" style="animation-delay: 0.2s;"></span>
+            <span class="loading-dot animate-dot" style="animation-delay: 0.4s;"></span>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 animate-fade-in-up delay-700">
+          <p class="text-sm text-gray opacity-60 tracking-wide">
+            Kanin &copy; 2025
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
