@@ -1,380 +1,181 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kaneen – Coming Soon</title>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="We're working on something special" />
+        <meta name="generator" content="v0.app" />
+        <title>Kanin - Coming Soon</title>
 
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Icons -->
+        <link
+            rel="icon"
+            href="/icon-light-32x32.png"
+            media="(prefers-color-scheme: light)"
+        />
+        <link
+            rel="icon"
+            href="/icon-dark-32x32.png"
+            media="(prefers-color-scheme: dark)"
+        />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
 
-    <!-- IBM Plex Sans Arabic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+        <!-- Google Fonts - IBM Plex Sans Arabic -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
 
-    <style>
-      :root {
-        --navy-blue: #1d2c59;
-        --beige: #e4d3bd;
-        --tahoe-green: #00c6c1;
-        --spanish-gray: #959c9f;
-        --gold: #be956d;
-        --background: #faf6f2;
-      }
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        <style>
+            body {
+                font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+        <div class="relative min-h-screen w-full overflow-hidden">
+            <!-- Video Background -->
+            <video
+                autoplay
+                loop
+                muted
+                playsinline
+                class="absolute inset-0 h-full w-full object-cover"
+            >
+                <source src="/background-video.mp4" type="video/mp4" />
+            </video>
 
-      body {
-        font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
-        min-height: 100vh;
-        overflow: hidden;
-        position: relative;
-      }
+            <!-- Overlay to dim the video slightly -->
+            <div class="absolute inset-0 bg-black/20"></div>
 
-      /* Video background container */
-      .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-      }
+            <!-- Content -->
+            <div
+                class="relative z-10 flex min-h-screen items-center justify-center p-4"
+            >
+                <div class="w-full max-w-xl bg-white px-8 py-14 shadow-2xl">
+                    <!-- Logo -->
+                    <div class="flex items-center justify-center">
+                        <svg
+                            width="256"
+                            height="256"
+                            viewBox="0 0 538.58 538.58"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <rect
+                                fill="#1d2c59"
+                                x="313.73"
+                                y="176.94"
+                                width="184.32"
+                                height="184.32"
+                            />
+                            <path
+                                fill="#e4d3bd"
+                                fill-rule="evenodd"
+                                d="M389.46,285.53l75.72,75.72h32.87l-92.16-92.16,92.16-92.16h-32.87l-75.72,75.72-16.43,16.43,16.43,16.43h0ZM313.73,290.74l113.8-113.8h-32.87l-80.93,80.93v32.87h0ZM354.2,320.79l40.47,40.47h32.87l-56.9-56.9-16.43-16.43-16.43,16.43,16.43,16.43h0Z"
+                            />
+                            <g>
+                                <path
+                                    fill="#1d2c59"
+                                    d="M103.48,232.1v15.2h-9.29c-.25,11.57-8.85,17.26-25.79,17.07-7.88,0-14.41-2.24-19.6-6.71-5.19-4.47-7.79-11.11-7.79-19.93,0-5.38,1.06-10.91,3.19-16.6l11.63-.75c-1.44,5.19-2.16,9.63-2.16,13.32,0,5.63,1.36,9.72,4.08,12.29,2.72,2.56,7.05,3.85,12.99,3.85,7.32,0,10.82-2.28,10.51-6.85v-33.39h12.94v22.51h9.29ZM69.05,211.65l-8.25-9.75,10.6-8.72,8.07,9.75-10.41,8.72Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M101.6,232.1h18.85v15.2h-18.85v-15.2Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M131.52,232.1v-26.26h13.13v26.26h11.16v15.2h-36.49v-15.2h12.19ZM146.06,253.48l8.35,10.13-10.41,8.72-6.47-7.69-9.29,7.69-8.44-10.13,10.6-8.72,6.28,7.69,9.38-7.69Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M153.75,232.1h18.85v15.2h-18.85v-15.2Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M183.68,232.1v-26.26h13.13v26.26h11.16v15.2h-36.49v-15.2h12.19ZM189.49,198.98l-8.25-9.75,10.6-8.72,8.07,9.75-10.41,8.72Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M205.91,232.1h18.85v15.2h-18.85v-15.2Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M285.73,247.29h-62.1v-15.2l45.31.19c-1.31-3.94-3.44-6.71-6.38-8.3-2.94-1.59-6.97-2.39-12.1-2.39h-17.17l-5.16-12.19,32.27-32.45,7.69,10.79-23.26,20.35h11.07c6.94,0,12.57,1.69,16.88,5.06,4.19,3.38,7.57,9.69,10.13,18.95l2.81,15.2Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M96.44,358.91v.94h-18.39l-22.14-30.02v30.02h-15.38v-65.66h15.38v30.02l22.23-30.02h16.42v.94l-23.54,30.39,25.42,33.39Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M146.06,328.71v15.67c0,4.5.87,9.32,2.63,14.45l-.37,1.03h-14.26c-.63-1.5-1.03-2.66-1.22-3.47-4,3.25-8.82,4.88-14.45,4.88-5.07,0-8.99-1.2-11.77-3.61-2.78-2.41-4.17-5.8-4.17-10.18,0-3.63.94-7.32,2.81-11.07,7.38-2,16.23-3.16,26.54-3.47v-.75c0-2.56-.59-4.41-1.78-5.53-1.19-1.13-3.13-1.69-5.82-1.69-4.69,0-10.63.72-17.82,2.16l-.84-.56v-12.29c7.94-1.62,15.16-2.44,21.67-2.44s11.27,1.3,14.3,3.89c3.03,2.6,4.55,6.93,4.55,12.99ZM116.33,346.15c0,3.25,2.06,4.88,6.19,4.88,2.69,0,5.78-.84,9.29-2.53v-7.69c-6.25.38-11.16.91-14.73,1.59-.5,1.06-.75,2.31-.75,3.75Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M187.61,311.73c10.32,0,15.48,5.32,15.48,15.95v32.17h-15.01v-27.48c0-4.5-1.88-6.75-5.63-6.75-3,0-5.97,1.19-8.91,3.56v30.67h-15.01v-46.9h13.13l1.22,3.94c4.56-3.44,9.47-5.16,14.73-5.16Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M222.04,307.79l-10.22-10.22,10.22-10.22,10.22,10.22-10.22,10.22ZM229.54,312.95v46.9h-15.01v-46.9h15.01Z"
+                                />
+                                <path
+                                    fill="#1d2c59"
+                                    d="M270.06,311.73c10.32,0,15.48,5.32,15.48,15.95v32.17h-15.01v-27.48c0-4.5-1.88-6.75-5.63-6.75-3,0-5.97,1.19-8.91,3.56v30.67h-15.01v-46.9h13.13l1.22,3.94c4.56-3.44,9.47-5.16,14.73-5.16Z"
+                                />
+                            </g>
+                        </svg>
+                    </div>
 
-      .video-background video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        z-index: 1;
-      }
+                    <!-- Coming Soon Text -->
+                    <div
+                        class="flex mb-4 flex-col items-center gap-2 text-center"
+                    >
+                        <h1
+                            class="w-full font-bold leading-tight text-7xl"
+                            style="color: #1e3a5f"
+                        >
+                            قريبــــــــــاً
+                        </h1>
+                        <h2
+                            class="w-full font-bold leading-tight text-4xl"
+                            style="color: #1e3a5f"
+                        >
+                            Coming Soon
+                        </h2>
+                    </div>
 
-      /* Fallback background for when video is not available */
-      .video-background::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #2a3d6e 0%, #1d2c59 50%, #2a3d6e 100%);
-        z-index: 0;
-      }
+                    <!-- Subtitle -->
+                    <div
+                        class="flex mb-4 flex-col items-center gap-1 text-center"
+                    >
+                        <p class="w-full text-2xl" style="color: #9ca3af">
+                            نعـــمـــل على شيء ممــــــيـز
+                        </p>
+                        <p class="w-full text-[13px]" style="color: #9ca3af">
+                            We're Working On Something Special
+                        </p>
+                    </div>
 
-      /* Dark overlay on video for better text readability */
-      .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(29, 44, 89, 0.30) 0%,
-          rgba(29, 44, 89, 0.30) 50%,
-          rgba(29, 44, 89, 0.30) 100%
-        );
-        z-index: 2;
-      }
-
-      /* Main content container */
-      .content-wrapper {
-        position: relative;
-        z-index: 10;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem 1rem;
-      }
-
-      /* Centered square card */
-      .coming-soon-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 16px;
-       padding-bottom: 2rem;
-        max-width: 550px;
-        width: 100%;
-        box-shadow: 
-          0 20px 60px rgba(0, 0, 0, 0.3),
-          0 8px 24px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 1);
-        text-align: center;
-        animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      }
-
-      @media (min-width: 640px) {
-        .coming-soon-card {
-          
-          max-width: 600px;
-        }
-      }
-
-      /* Logo container */
-      .logo-container {
-        margin-bottom: 2rem;
-        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
-      }
-
-      .logo-container img {
-        width: 256px;
-        height: 256px;
-        object-fit: contain;
-        margin: 0 auto;
-        display: block;
-      }
-
-   
-
-      /* Arabic heading */
-      .heading-arabic {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--navy-blue);
-        margin-bottom: 1rem;
-        line-height: 1.2;
-        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards;
-      }
-
-      @media (min-width: 640px) {
-        .heading-arabic {
-          font-size: 3.5rem;
-        }
-      }
-
-      /* English heading */
-      .heading-english {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: rgba(29, 44, 89, 0.6);
-        letter-spacing: 0.3em;
-        margin-bottom: 1.5rem;
-        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards;
-      }
-
-      @media (min-width: 640px) {
-        .heading-english {
-          font-size: 1.5rem;
-        }
-      }
-
-      /* Divider */
-      .divider {
-        height: 2px;
-        width: 80px;
-        background: linear-gradient(90deg, var(--tahoe-green) 0%, var(--gold) 100%);
-        margin: 0 auto 1.5rem;
-        border-radius: 1px;
-        animation: line-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s backwards;
-      }
-
-      /* Tagline */
-      .tagline {
-        margin-bottom: 2rem;
-        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s backwards;
-      }
-
-      .tagline-english {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: var(--navy-blue);
-        letter-spacing: 0.1em;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-      }
-
-      .tagline-arabic {
-        font-size: 1rem;
-        color: var(--spanish-gray);
-        font-weight: 400;
-      }
-
-      @media (min-width: 640px) {
-        .tagline-english {
-          font-size: 1rem;
-        }
-        
-        .tagline-arabic {
-          font-size: 1.125rem;
-        }
-      }
-
-      /* Contact button */
-      .contact-button {
-        background: var(--navy-blue);
-        color: white;
-        padding: 1rem 3rem;
-        border-radius: 50px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        box-shadow: 0 4px 20px rgba(29, 44, 89, 0.3);
-        animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s backwards;
-        display: inline-block;
-        text-decoration: none;
-      }
-
-      .contact-button:hover {
-        background: var(--tahoe-green);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 30px rgba(0, 198, 193, 0.4);
-      }
-
-      .contact-button:active {
-        transform: translateY(0);
-      }
-
-      @media (min-width: 640px) {
-        .contact-button {
-          font-size: 1rem;
-          padding: 1.125rem 3.5rem;
-        }
-      }
-
-      /* Animations */
-      @keyframes fade-in-scale {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes line-grow {
-        from {
-          transform: scaleX(0);
-        }
-        to {
-          transform: scaleX(1);
-        }
-      }
-
-      /* Version switcher */
-      .version-switcher {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 50;
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .version-switcher a {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-        font-size: 0.875rem;
-        color: var(--navy-blue);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-      }
-
-      .version-switcher a:hover {
-        background: var(--navy-blue);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(29, 44, 89, 0.3);
-      }
-
-      .version-switcher a.active {
-        background: var(--navy-blue);
-        color: white;
-        pointer-events: none;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Version switcher -->
-    <!-- <div class="version-switcher">
-      <a href="index.html">A</a>
-      <a href="option-b.html">B</a>
-      <a href="option-c.html">C</a>
-      <a href="option-d.html" class="active">D</a>
-    </div> -->
-
-    <!-- Video background -->
-    <div class="video-background">
-      
-      <video autoplay muted loop playsinline poster="">
-        <source src="./background-video.mp4" type="video/mp4" />
-        
-        Your browser does not support the video tag.
-      </video>
-      
-      <!-- Dark overlay for text readability -->
-      <div class="video-overlay"></div>
-    </div>
-
-    <!-- Main content -->
-    <div class="content-wrapper">
-      <div class="coming-soon-card">
-        <!-- Logo -->
-        <div class="logo-container">
-          <img src="/logo.svg" alt="Kaneen Logo" />
+                    <!-- Contact Button -->
+                    <div class="flex justify-center">
+                        <a
+                            href="mailto:admin@kanin.com.sa"
+                            class="inline-flex items-center justify-center whitespace-nowrap px-20 py-4 text-xl font-semibold transition-all outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                            style="background-color: #6eb8bd; color: white"
+                        >
+                            Contact US
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Arabic heading -->
-  <h2 class="heading-english">COMING SOON</h2>
-        <h1 class="heading-arabic">قريبــــــــــــــــــــــاً</h1>
-
-        <!-- English heading -->
-      
-
-        <!-- Divider -->
-     
-
-   
-
-        <!-- Tagline -->
-        <div class="tagline">
-          <p class="tagline-english"> We're working on something special</p>
-          <p class="tagline-arabic"> نعمل على شيء مميز</p>
-        </div>
-
-        <!-- Contact button -->
-        <a href="mailto:admin@kanin.com.sa"  class="contact-button" onclick="window.location.href='#contact'">
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
